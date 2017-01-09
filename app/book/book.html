@@ -1,0 +1,56 @@
+<h2>Título: {{ book.title }}</h2>
+<hr>
+<div class="col-md-3">
+    <img ng-src="http://covers.openlibrary.org/b/isbn/{{book.isbn10}}-L.jpg" height="200" width="200">
+    <br>Imagen obtenida de <a href="http://openlibrary.org/isbn/{{book.isbn10}}">OpenLibrary</a>
+</div>
+<div class="col-md-9">
+    <div class="table-responsive">
+    <table class="table table-bordered table-hover table-striped tablesorter">
+        <tbody>
+            <tr>
+                <td>Título</td>
+                <td>{{ book.title }}</td>
+            </tr>
+            <tr>
+                <td>Título completo</td>
+                <td>{{ book.title_long }}</td>
+            </tr>
+            <tr>
+                <td>Resumen</td>
+                <td>{{ book.summary }}</td>
+            </tr>
+            <tr>
+                <td>Publicador</td>
+                <td>{{ book.publisher_name }}</td>
+            </tr>
+            <tr>
+                <td>Edición</td>
+                <td>{{ book.edition_info }}</td>
+            </tr>
+            <tr>
+                <td>Autor(es)</td>
+                <td><p ng-repeat="autor in book.author_data">{{ autor.name }}</p></td>
+            </tr>
+            <tr>
+                <td>ISBN10</td>
+                <td>{{ book.isbn10 }}</td>
+            </tr>
+            <tr>
+                <td>ISBN13</td>
+                <td>{{ book.isbn13 }}</td>
+            </tr>
+            <tr>
+                <td>Dimensiones y peso</td>
+                <td>{{ book.physical_description_text }}</td>
+            </tr>
+            <tr>
+                <td>Tópicos relacionados</td>
+                <td><p ng-repeat="subject in book.subjects">{{ subject }}</p></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+
+

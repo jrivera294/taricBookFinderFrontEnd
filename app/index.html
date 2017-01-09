@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>BookFinder | Buscador de libros </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#!/home"><i class="glyphicon glyphicon-book"></i> BookFinder</a>
+            </div>
+
+            <div class="col-sm-6 col-md-6">
+                <form class="navbar-form" ng-submit="submit()" ng-controller="IndexCtrl">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Buscar" type="text" ng-model="search.query">
+                        <div class="input-group-btn">
+                            <select class="form-control" ng-model="search.index">
+                                <option value="isbn">ISBN</option>
+                                <option value="title">Títutlo</option>
+                                <option value="author">Autor</option>
+                                <option value="publisher">Publicador</option>
+                                <option value="subject">Tópico</option>
+                            </select>
+                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="alert alert-danger alert-dismissable fade in" ng-show="error">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Error:</strong> {{ error }}
+        </div>
+          <!--[if lt IE 7]>
+              <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+          <![endif]-->
+        <div ng-view></div>
+    </div>
+
+
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">Taric | Junior backend python test | José Gabriel Rivera | 09/01/2017 </p>
+        </div>
+    </footer>
+
+    <!-- In production use:
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+    -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
+    <script src="home/home.js"></script>
+    <script src="book/book.js"></script>
+    <script src="list/list.js"></script>
+    <script src="components/version/version.js"></script>
+    <script src="components/version/version-directive.js"></script>
+    <script src="components/version/interpolate-filter.js"></script>
+</body>
+</html>

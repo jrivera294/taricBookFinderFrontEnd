@@ -1,0 +1,29 @@
+<h1> Resultados:</h1>
+<hr>
+<div class="table-responsive">
+    <table class="table table-bordered table-hover table-striped tablesorter">
+        <thead>
+            <th>Título</th>
+            <th ng-hide="index_disease">Autor(es)</th>
+            <th></th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="book in result.books">
+                <td>{{ book.title }}</td>
+                <td ng-hide="index_disease"><p ng-repeat="autor in book.author_data">{{ autor.name }}</p></td>
+                <td>
+                    <button class="btn btn-info" type="button" ng-click="detail(book)">
+                        Ver detalle
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul class="pagination" ng-hide="index_disease">
+        <li ng-repeat="i in paginator_array track by $index"
+            ng-class="i == result.current_page ? 'active' : ''">
+                <a href="" ng-click="move_to_page(i)">{{i}}</a>
+        </li>
+    </ul>
+</div>
